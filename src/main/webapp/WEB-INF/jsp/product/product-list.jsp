@@ -49,7 +49,8 @@ td {
 <body>
 
 	<div align="center">
-		<a href="add">Add new Product</a>
+		<a href="add">Add new Product</a> 
+		<a href="${pageContext.request.contextPath}">Home</a>
 		<table>
 			<thead>
 				<tr>

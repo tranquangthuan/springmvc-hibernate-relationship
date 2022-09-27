@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.fa.demomvc.entity.Category;
 import com.fa.demomvc.entity.Product;
@@ -24,7 +23,6 @@ import com.fa.demomvc.service.ProductService;
 
 @Controller
 @RequestMapping("/product")
-@SessionAttributes("categories")
 public class ProductController {
 
 	@Autowired
@@ -32,14 +30,6 @@ public class ProductController {
 
 	@Autowired
 	private CategoryService categoryService;
-
-//	@RequestMapping("/list")
-//	public String getAllProduct(Model model) {
-//		List<Product> products = productService.findAll();
-//		model.addAttribute("products", products);
-//
-//		return "product-list";
-//	}
 
 	@GetMapping("/list")
 	public String getAllProductWithPageAble(Model model, @RequestParam(defaultValue = "1") Integer page) {
@@ -49,22 +39,19 @@ public class ProductController {
 		model.addAttribute("totalPages", productService.totalPages(pageAble));
 		model.addAttribute("currentPage", page);
 
-		return "product-list";
+		return "/product/product-list";
 	}
 
 	@GetMapping("/add")
 	public String showAddForm(Model model) {
 		model.addAttribute("productForm", new Product());
-		return "newProduct";
+		return "/product/new-product";
 	}
 
 	@PostMapping("/save")
 	public String addNewProduct(@ModelAttribute(name = "productForm") @Valid Product product, BindingResult result) {
-		if (product.getCategory().getId() > 2) {
-			result.rejectValue("category.id", "error.category.id", "An account already exists for this email.");
-		}
 		if (result.hasErrors()) {
-			return "newProduct";
+			return "/product/new-product";
 		}
 		productService.saveOrUpdate(product);
 		return "redirect:/product/list";
@@ -72,7 +59,6 @@ public class ProductController {
 
 	@GetMapping("/delete")
 	public String delete(@RequestParam(name = "id") long productId) {
-		System.out.println("productId=" + productId);
 		productService.delete(productId);
 		return "redirect:/product/list";
 	}
@@ -81,11 +67,11 @@ public class ProductController {
 	public String update(@PathVariable(name = "id") long productId, Model model) {
 		Product product = productService.findById(productId);
 		model.addAttribute("productForm", product);
-		return "newProduct";
+		return "/product/newProduct";
 	}
 
 	@ModelAttribute("categories")
-	public List<Category> initializeProfiles() {
+	public List<Category> initCategories() {
 		return categoryService.findAll();
 	}
 }

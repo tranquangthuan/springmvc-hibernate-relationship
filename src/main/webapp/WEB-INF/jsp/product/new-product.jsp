@@ -10,6 +10,7 @@
 </head>
 <body>
 	<div align="center">
+		<a href="${pageContext.request.contextPath}">Home</a>
 		<form:form action="${pageContext.request.contextPath}/product/save"
 			method="post" modelAttribute="productForm">
 			<table>

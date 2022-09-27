@@ -2,7 +2,7 @@ package com.fa.demomvc.page;
 
 public class PageAble {
 	private int page;
-	private int size = 3;
+	private int size = 5;
 
 	public PageAble(int page) {
 		super();
