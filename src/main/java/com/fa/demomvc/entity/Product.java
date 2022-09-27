@@ -40,9 +40,7 @@ public class Product {
 		this.quantity = quantity;
 	}
 
-	public Product(@NotBlank(message = "please input name") String name,
-			@Range(min = 1, max = 1000, message = "Nhập quantity trong khoảng 1 - 1000") int quantity,
-			Category category) {
+	public Product(String name, int quantity, Category category) {
 		super();
 		this.name = name;
 		this.quantity = quantity;
