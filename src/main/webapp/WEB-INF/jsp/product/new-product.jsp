@@ -25,6 +25,16 @@
 					<td><form:errors path="quantity" /></td>
 				</tr>
 				<tr>
+					<td><form:label path="ngaySanXuat">Ngay San Xuat</form:label></td>
+					<td><form:input type="date" path="ngaySanXuat" /></td>
+					<td><form:errors path="ngaySanXuat" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="gioSanXuat">Gio San Xuat</form:label></td>
+					<td><form:input type="time" path="gioSanXuat" /></td>
+					<td><form:errors path="gioSanXuat" /></td>
+				</tr>
+				<tr>
 					<td><form:label path="category.id">category</form:label></td>
 					<td><form:select path="category.id" items="${categories}"
 							itemValue="id" itemLabel="name" /></td>

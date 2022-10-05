@@ -49,14 +49,16 @@ td {
 <body>
 
 	<div align="center">
-		<a href="add">Add new Product</a> 
-		<a href="${pageContext.request.contextPath}">Home</a>
+		<a href="add">Add new Product</a> <a
+			href="${pageContext.request.contextPath}">Home</a>
 		<table>
 			<thead>
 				<tr>
-					<th width="20%">Id</th>
+					<th width="10%">Id</th>
 					<th width="20%">Name</th>
-					<th width="20%">Quantity</th>
+					<th width="10%">Quantity</th>
+					<th width="20%">Ngay San Xuat</th>
+					<th width="20%">Gio San Xuat</th>
 					<th width="20%">Category</th>
 					<th width="20%">Action</th>
 				</tr>
@@ -67,6 +69,8 @@ td {
 						<td>${product.id}</td>
 						<td>${product.name}</td>
 						<td>${product.quantity}</td>
+						<td>${product.ngaySanXuat}</td>
+						<td>${product.gioSanXuat}</td>
 						<td>${product.category.name}</td>
 						<td><a href="delete?id=${product.id}">Delete</a> <a
 							href="update/${product.id}">Update</a></td>

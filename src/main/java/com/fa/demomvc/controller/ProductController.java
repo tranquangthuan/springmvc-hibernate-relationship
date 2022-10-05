@@ -67,7 +67,7 @@ public class ProductController {
 	public String update(@PathVariable(name = "id") long productId, Model model) {
 		Product product = productService.findById(productId);
 		model.addAttribute("productForm", product);
-		return "/product/newProduct";
+		return "/product/new-product";
 	}
 
 	@ModelAttribute("categories")
