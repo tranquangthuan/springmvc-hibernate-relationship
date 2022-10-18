@@ -18,4 +18,6 @@ public interface ProductService {
 	public Product findById(long id);
 
 	public int totalPages(PageAble pageAble);
+
+	public List<Product> search(String searchKey);
 }

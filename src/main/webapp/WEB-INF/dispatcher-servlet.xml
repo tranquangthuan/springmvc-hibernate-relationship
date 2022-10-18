@@ -26,7 +26,7 @@
 		<property name="driverClassName"
 			value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
 		<property name="url"
-			value="jdbc:sqlserver://localhost:1433;databaseName=spring-mvc" />
+			value="jdbc:sqlserver://localhost:1433;databaseName=spring-mvc;encrypt=true;trustServerCertificate=true" />
 		<property name="username" value="sa" />
 		<property name="password" value="gau@123@ABCD" />
 	</bean>

@@ -74,4 +74,14 @@ public class ProductController {
 	public List<Category> initCategories() {
 		return categoryService.findAll();
 	}
+
+	@GetMapping("/search")
+	public String delete(@RequestParam(name = "searchKey") String searchKey, Model model) {
+		System.out.println("Search method " + searchKey);
+		List<Product> products = productService.search(searchKey);
+		model.addAttribute("products", products);
+		model.addAttribute("searchKey", searchKey);
+
+		return "/product/product-search";
+	}
 }

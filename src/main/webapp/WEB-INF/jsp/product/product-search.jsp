@@ -55,8 +55,8 @@ td {
 		<div>
 			<form action="${pageContext.request.contextPath}/product/search"
 				method="get">
-				<input type="text" name="searchKey"> <input type="submit"
-					value="Search">
+				<input type="text" name="searchKey" value="${searchKey}"> <input
+					type="submit" value="Search">
 			</form>
 		</div>
 		<table>

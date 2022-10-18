@@ -58,4 +58,9 @@ public class ProductServiceImpl implements ProductService {
 		return (int) Math.ceil((double) totalRecord / pageAble.getSize());
 	}
 
+	@Override
+	@Transactional
+	public List<Product> search(String searchKey) {
+		return productRepository.search(searchKey);
+	}
 }

@@ -19,4 +19,6 @@ public interface ProductRepository {
 
 	public long count();
 
+	public List<Product> search(String searchKey);
+
 }
